@@ -19,7 +19,7 @@ app.get("/api/jokes", (req, res) => {
 app.post("/api/data", async (req, res) => {
     const { name } = req.body
     console.log(name)
-    return name
+    return res.status(200).json({ message: "Data received", name }); // Send success response
 
 })
 const port = process.env.PORT || 3000

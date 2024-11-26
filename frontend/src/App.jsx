@@ -19,7 +19,7 @@ function App() {
   const handleClick = async (e) => {
     e.preventDefault()
     const response = await data()
-    console.log(response, "the backend response")
+    console.log(response.data, "the backend response")
 
   }
   return (
