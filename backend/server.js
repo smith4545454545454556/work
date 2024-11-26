@@ -1,5 +1,7 @@
 import express from "express"
+import { dataModel } from "./model/data"
 const app = express()
+app.use(express.json())
 // app.get("/", (req, res) => {
 //     res.send("server is running")
 
@@ -13,6 +15,14 @@ app.get("/api/jokes", (req, res) => {
         content: "hehehe"
     }]
     res.send(jokes)
+})
+app.post("/api/data", async (req, res) => {
+    const { name } = req.body
+    const user = new dataModel({
+        name: name
+    })
+    return user
+
 })
 const port = process.env.PORT || 3000
 app.listen(port, () => {

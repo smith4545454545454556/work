@@ -3,6 +3,7 @@ import axios from 'axios'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { data } from './api/data'
 
 function App() {
   const [jokes, setJokes] = useState([])
@@ -15,7 +16,12 @@ function App() {
     })
 
   }, [])
+  const handleClick = async (e) => {
+    e.preventDefault()
+    const response = await data()
+    console.log(response, "the backend response")
 
+  }
   return (
     <>
       <p>{jokes.length}</p>
@@ -24,6 +30,9 @@ function App() {
           <p key={joke.id}>{joke.content}</p>
         ))}
       </div>
+      <form>
+        <button onClick={handleClick}>click</button>
+      </form>
 
     </>
   )
