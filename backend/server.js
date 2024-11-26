@@ -1,5 +1,5 @@
 import express from "express"
-import { dataModel } from "./model/data"
+import { dataModel } from "./model/data.js"
 const app = express()
 app.use(express.json())
 // app.get("/", (req, res) => {
