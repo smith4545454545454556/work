@@ -18,10 +18,8 @@ app.get("/api/jokes", (req, res) => {
 })
 app.post("/api/data", async (req, res) => {
     const { name } = req.body
-    const user = new dataModel({
-        name: name
-    })
-    return user
+    console.log(name)
+    return name
 
 })
 const port = process.env.PORT || 3000
