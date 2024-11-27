@@ -1,12 +1,14 @@
-import mongoose from "mongoose"
+import mongoose from 'mongoose';
 
 export const connectDB = async () => {
-    try {
-        await mongoose.connect(process.env.MONGODB_URL)
-        console.log("connected to db")
-
-    }
-    catch (error) {
-        console.log(error)
-    }
-}
+  try {
+    await mongoose.connect(process.env.MONGODB_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      serverSelectionTimeoutMS: 10000,  // Timeout set to 10 seconds
+    });
+    console.log('Connected to MongoDB Atlas');
+  } catch (error) {
+    console.error('MongoDB connection error:', error);
+  }
+};
