@@ -32,7 +32,7 @@ app.get("/api/jokes", (req, res) => {
 app.post("/api/data", async (req, res) => {
     const { name } = req.body
     const user = new dataModel({
-        name: name
+        name: "hello"
     })
     await user.save()
     return res.status(200).json({ message: "Data received", user }); // Send success response
