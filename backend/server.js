@@ -35,7 +35,7 @@ app.post("/api/data", async (req, res) => {
         name: "hello"
     })
     await user.save()
-    return res.status(200).json({ message: "Data received", user }); // Send success response
+    return res.status(200).json({ message: "Data received" }); // Send success response
 
 })
 const port = process.env.PORT || 3000
